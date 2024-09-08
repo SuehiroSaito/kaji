@@ -1,23 +1,42 @@
 <html>
 <body>
-かじる 関数 その２
-即時関数、無名関数
+かじる JavaScript 関数 その２ 即時関数, 無名関数
 <script>
 
+// 関数定義３種類
+
+// 関数文を使った関数定義
 function twice(x){
 	return 2 * x
 }
 
-const A = [1, 2, 3, 4, 5]
-let B = []
-for(let i=0; i<A.length; i++){
-	// B.push(twice(A[i]))
-	 B.push((twice(A[i])) 
+// 関数式を使った関数定義。無名関数を tF 関数とする
+const tF = function(x){ 
+	return 2 * x
 }
 
-console.log(B)
+// ラムダ式を使った関数定義、無名関数を tL 関数とする
+const tL = x => 2*x // twice関数と同等なラムダ式関数
 
-const f = x => 2*x
+// 実行
+
+a = 3
+b = twice(a)
+c = tF(a)
+d = tL(a)
+
+// 即時関数・無名関数￥, tF と同等
+e = (function(x){
+	return 2 * x
+})(a)
+
+// ラムダ式を使った即時関数・無名関数,tL と同等
+d = ((x) => 2 * x)(a)
+
+console.log(b)
+console.log(c)
+console.log(d)
+console.log(e)
 
 </script>
 </body>
