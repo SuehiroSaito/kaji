@@ -1,0 +1,29 @@
+<html>
+<body>
+かじる JavaScript 関数 その３ 高階関数
+<script>
+
+function twice(x){
+	return 2 * x
+}
+
+// 高階関数 関数を引き数に取る関数
+function cal3times(x,f){
+	x = f(x)
+	console.log(x)
+	x = f(x)
+	console.log(x)
+	x = f(x)
+	console.log(x)
+}
+    
+f = twice 
+g = (x => 3*x)
+
+n = 3
+cal3times(n, f)  //関数 f を引き数としている
+cal3times(n, g)  //関数 g を引き数としている
+
+</script>
+</body>
+</html>
