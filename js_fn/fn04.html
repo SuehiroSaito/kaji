@@ -1,0 +1,44 @@
+<html>
+<body>
+かじる JavaScript 関数 その４ イベントハンドラ
+
+<p id="dA">　</p>
+<script>
+let dA = document.getElementById('dA');
+</script>
+
+<!-- その１　古風な書き方 -->
+<button onclick="sayHello01()">click</button>
+<script>
+function sayHello01() {
+	dA.textContent = 'Hello01';
+}
+</script>
+
+<!-- その２　ちょっと今風 -->
+<button id="btn02">click</button>
+<script>
+let btn02 = document.getElementById('btn02');
+btn02.onclick = (() => {
+    dA.textContent = 'Hello02';
+})
+</script>
+
+<!-- その３　今風 -->
+<button id="btn03">click</button>
+<script>
+let btn03 = document.getElementById('btn03');
+btn03.addEventListener('click', () => {
+    dA.textContent = 'Hello03';
+})
+</script>
+
+<!-- その４　おまけ、趣味ならこれ -->
+<button onclick ="
+    dA.textContent = 'Hello05';
+">
+  click
+</button>
+
+</body>
+</html>
