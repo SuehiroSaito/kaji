@@ -1,0 +1,33 @@
+<html>
+<head>
+<script 
+    src="https://code.jquery.com/jquery-latest.js">
+</script>
+</head>
+<body>
+かじる jQuery その１ 
+
+<p id="dA">　</p>
+
+<!-- 標準的な書き方 -->
+
+<button id="btn_0">click</button>
+<script>
+let dA = document.getElementById('dA');
+let btn_0 = document.getElementById("btn_0");
+btn_0.addEventListener("click", () => {
+    dA.textContent = "Hello nojQuery";
+})
+</script>
+
+<!-- jQuery を使った書き方 -->
+
+<button id="btn_j">click</button>
+<script>
+$("#btn_j").on("click", () =>{
+    $("#dA").text("Hello jQuery")
+})
+</script>
+
+</body>
+</html>
