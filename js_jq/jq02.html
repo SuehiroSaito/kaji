@@ -1,0 +1,35 @@
+<html>
+<head>
+<script 
+    src="https://code.jquery.com/jquery-latest.js">
+</script>
+</head>
+<body>
+かじる jQuery その２ 
+
+<p id="dA">　</p>
+<button id="btn_j">click</button>
+
+<script>
+
+$("#btn_j").hover(
+    () => { $("#dA")
+            .text("please push!")
+            .css("color","red")
+            .css("font-weight","bold")
+          }, 
+    //else
+    () => { $("#dA")
+            .text("　　　　　")
+            .css("color","black")
+            .css("font-weight","normal")
+          }
+)
+
+$("#btn_j").on("click", () =>{
+    $("#dA").text("Hello jQuery")
+})
+</script>
+
+</body>
+</html
