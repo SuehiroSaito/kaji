@@ -1,0 +1,103 @@
+<html>
+<head>
+<script src="https://zeptojs.com/zepto.min.js">
+// src="https://code.jquery.com/jquery-latest.js" の高速版
+</script>
+
+<style>
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  p{
+    margin: 0;
+  }
+  .wrap-tab{
+    overflow: hidden;
+  }
+  
+  .list-tab{
+    display: flex;
+    margin: 0 -2px;
+    border-bottom: 3px solid #5bbee5;
+  }
+  .list-tab > li{
+    display: block;
+    padding: 0.5em 1em;
+    margin: 0 2px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    background: #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  .list-tab .active{
+    background: #5bbee5;
+  }
+  
+  .tab-content{
+    display: none;
+    padding: 1em;
+    border-bottom: 1px solid #5bbee5;
+    border-left: 1px solid #5bbee5;
+    border-right: 1px solid #5bbee5;
+  }
+  .tab-content.active{
+    display: block;
+  }
+</style>
+
+</head>
+<body>
+かじる jQuery その３ JavaScript が短くなる
+<br>
+<br>
+<div class="wrap-tab">
+    <ul id="js-tab" class="list-tab">
+      <li class="active">タブ1</li>
+      <li>タブ2</li>
+      <li>タブ3</li>
+      <li>タブ4</li>
+    </ul>
+    
+    <div class="wrap-tab-content">
+      <div class="tab-content active">
+        <p>タブ1タブ1タブ1</p>
+      </div>
+  
+      <div class="tab-content">
+        <p>タブ2タブ2タブ2</p>
+      </div>
+      
+      <div class="tab-content">
+        <p>タブ3タブ3タブ3</p>
+      </div>
+      
+      <div class="tab-content">
+        <p>タブ4タブ4タブ4</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+$(function(){
+  $("#js-tab li").click(function(){
+    $("#js-tab li").removeClass("active");
+    $(this).addClass("active");
+    let index = $(this).index();
+    
+    $(".tab-content").removeClass("active");
+    $(".tab-content").eq(index).addClass("active");
+  });
+});
+// 以下のプログラムを少し変形
+// Webサイトでタブ切り替えする方法 3選＠ハシウェブ
+// https://hsmt-web.com/blog/tab-switching/
+// jQuery を使わないとき、JS は、26 行
+</script>
+
+</body>
+</html
