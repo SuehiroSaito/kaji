@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<title>かじる JavaScript my辞書 その１</title>
+<script src="https://zeptojs.com/zepto.min.js">
+</script>
+</head>
+
+<body>
+<br>
+<input type="text" id="xt" 
+  value="" 
+  onkeypress="chkEnter(event.keyCode)"
+>
+<br>   
+
+<script>
+let w01=""
+let w02=""
+
+function search(){
+  x = $("#xt").val();
+  w01 = window.open("http://www.oxfordlearnersdictionaries.com/definition/english/" + x, "w01");
+  w02 = window.open("http://eow.alc.co.jp/" + x, "w02");
+}
+
+function chkEnter(code){
+	//エンターキー押下なら
+	if(code === 13){
+		search();
+	}
+}
+
+</script>
+
+</body>
+</html
