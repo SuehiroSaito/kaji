@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<title>myDic</title>
+  <script src="https://zeptojs.com/zepto.min.js">
+  </script>
+</head>
+<body>
+  かじる JavaScript my辞書 その２
+<br>
+<br>
+<input type="text" id="xt" 
+  value="" 
+  onkeypress="chkEnter(event)"
+>
+<br>
+<input type = "button" value = "Clear word" onClick = "$('#xt').val('')">
+<br>
+<textarea id="swords_eria" rows=25 cols = 28 ></textarea>
+<br>
+<input type = "button" value = "Clear Search History" onClick = "cSWords()"><br>
+
+<script>
+let w01=""
+let w02=""
+
+swords = localStorage.getItem('swords');
+$('#swords_eria').val(swords);
+
+function cSWords(){ // clear seach history
+    swords = ""
+    $('#swords_eria').val(swords);
+    localStorage.setItem('swords', swords);
+}
+
+function addSWords(x){
+    swords = x + "\n" + swords
+    $('#swords_eria').val(swords);
+    localStorage.setItem('swords', swords);
+}
+
+function search(){
+  x = $("#xt").val();
+  addSWords(x)
+  w01 = window.open("http://www.oxfordlearnersdictionaries.com/definition/english/" + x, "w01");
+  w02 = window.open("http://eow.alc.co.jp/" + x, "w02");
+}
+
+function chkEnter(event){
+	//エンターキー押下なら
+	if(event.keyCode === 13){
+		search();
+	}
+}
+// 当辞書プログラムは、著作権フリーです。
+</script>
+
+</body>
+</html
