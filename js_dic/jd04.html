@@ -1,0 +1,94 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>myDic</title>
+  <script src="https://zeptojs.com/zepto.min.js">
+  </script>
+</head>
+<body>
+  かじる JavaScript my辞書 その４
+<br>
+<br>
+<input type="text" id="xt" 
+  style="font-size: 30px;" 
+  size = 17
+  value="" 
+  onkeypress="chkEnter(event)"
+>
+<br>
+<input type = "button" value = "search" onClick = "xsearch()">
+<input type = "button" value = "reset" onClick = "xreset()">
+<br>
+<textarea id="working_eria" rows=20 cols = 55 >
+(調べたい英語語を含む英文をここに貼り付けて、その英単語をマウスで選択します。)
+</textarea>
+
+<br>
+<br>
+<textarea id="swords_eria" rows=25 cols = 28 ></textarea>
+<br>
+<input type = "button" value = "Clear Search History" onClick = "cSWords()"><br>
+
+<script>
+let w01=""
+let w02=""
+let swords = localStorage.getItem('swords');
+
+$('#swords_eria').val(swords);
+
+function cSWords(){ // clear seach history
+    swords = ""
+    $('#swords_eria').val(swords);
+    localStorage.setItem('swords', swords);
+}
+
+function addSWords(x){
+    swords = x + "\n" + swords
+    $('#swords_eria').val(swords);
+    localStorage.setItem('swords', swords);
+}
+
+function search(){
+  let x = $("#xt").val()
+  addSWords(x)
+  w01 = window.open("http://www.oxfordlearnersdictionaries.com/definition/english/" + x, "w01");
+  w02 = window.open("http://eow.alc.co.jp/" + x, "w02");
+  xw3 = window.open("http://ejje.weblio.jp/content/" + x, "xw3");
+  xw4 = window.open("https://youglish.com/pronounce/" + x +"/english", "xw4");
+  xw5 = window.open("http://images.google.com/images?q="+ x, "xw5");
+  xw6 = window.open("https://www.google.com/search?q=" + x +" 語源", "xw6");
+}
+
+// 選択したものを検索ワード欄に入れる
+$('body').on('mouseup', ()=>{
+  var slcWd;
+  if(window.getSelection){
+    slcWd = window.getSelection().toString();
+    if(slcWd !== '' && slcWd !== '\n'){
+      $('#xt').val(slcWd).focus();
+    }
+  }
+});
+
+function chkEnter(event){
+	//エンターキー押下なら
+	if(event.keyCode === 13){
+		search();
+	}
+}
+
+function xreset(){
+    x = $("#xt").val("");
+    $("#xt").focus();  // プログラムメモ：カーソルを位置付ける
+}
+
+document.bgColor="ddff88"; // 色を指定
+xreset();
+
+// 当辞書プログラムは、著作権フリーです。
+</script>
+
+</body>
+</html
