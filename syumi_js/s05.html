@@ -1,0 +1,34 @@
+<html>
+<head>
+<script 
+  src="https://code.jquery.com/jquery-latest.js">
+</script>
+</head>
+
+<body>
+  Hobby JavaScript no.5<br>
+<input type="button" value="xNow" onClick="xdspDate()"> <br>
+
+<textarea id="xarea" rows=20 cols = 40 ></textarea> <br>
+
+<script>
+function xdspDate(){
+
+  xt = new Date()
+
+  xdt = xt.getFullYear()
+    + " "
+    + xt.getMonth()
+    + "/"
+    + xt.getDate()
+    + " "
+    + xt.getHours()
+    + ":"
+    + xt.getMinutes()
+
+  $("#xarea").val(xdt)
+}
+</script>
+
+</body>
+</html>
