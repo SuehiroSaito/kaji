@@ -1,5 +1,6 @@
 <html>
 <head>
+  <meta charset="utf-8">
 <script 
   src="https://code.jquery.com/jquery-latest.js">
 </script>
@@ -7,54 +8,79 @@
 
 <body>
   Hobby JavaScript no.7<br>
-<input type="button" value="xNow" onClick="xdspDate()"> <br>
-
-<textarea id="xarea" rows=20 cols = 40 ></textarea> <br>
-
+<br>
+    
+<textarea id="xarea" rows=1 cols = 25 ></textarea> 
+<input type="button" value="xcopy" onClick="xcopy($('#xarea').val())">
+    
 <script>
+
+setInterval(xdspDate, 200);
+    
 function xdspDate(){
 
   xt = new Date()
 
   xyoubi = "---"
   if (xt.getDay() == 0){
-    xyoubi = "Sun"
+    xyoubi = "日"
   }
   if (xt.getDay() == 1){
-    xyoubi = "Mon"
+    xyoubi = "月"
   }
   if (xt.getDay() == 2){
-    xyoubi = "Tue"
+    xyoubi = "火"
   }
   if (xt.getDay() == 3){
-    xyoubi = "Wed"
+    xyoubi = "水"
   }
   if (xt.getDay() == 4){
-    xyoubi = "Thu"
+    xyoubi = "木"
   }
   if (xt.getDay() == 5){
-    xyoubi = "Fri"
+    xyoubi = "金"
   }
   if (xt.getDay() == 6){
-    xyoubi = "Sat"
+    xyoubi = "土"
   }
 
   xdt = xt.getFullYear()
-    + " "
-    + (xt.getMonth() + 1)
     + "/"
-    + xt.getDate()
-    + " "
+    + ("0" + (xt.getMonth() + 1)).slice(-2)
+    + "/"
+    + ("0" + xt.getDate()).slice(-2)
+    + "("
     + xyoubi
-    + " "
-    + xt.getHours()
+    + ") "
+    + ("0" + xt.getHours()).slice(-2)
     + ":"
-    + xt.getMinutes()
+    + ("0" + xt.getMinutes()).slice(-2)
     + ":"
-    + xt.getSeconds()
+    + ("0" + xt.getSeconds()).slice(-2)
 
   $("#xarea").val(xdt)
 }
+
+function xcopy(xstr){
+
+  let xtmp = document.createElement('div');
+  xtmp.appendChild(document.createElement('pre')).textContent = xstr;
+
+  let xs = xtmp.style;
+  xs.position = 'fixed';
+  xs.left = '-100%';
+
+  document.body.appendChild(xtmp);
+  document.getSelection().selectAllChildren(xtmp);
+
+  var xrst = document.execCommand('copy');
+
+  document.body.removeChild(xtmp);
+
+  // true なら実行できている falseなら失敗か対応していないか
+  // if(xrst){alert("コピーできました");} else {alert("失敗");}
+}
+
 </script>
 
 </body>
