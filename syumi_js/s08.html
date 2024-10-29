@@ -1,0 +1,92 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<script 
+  src="https://code.jquery.com/jquery-latest.js">
+</script>
+</head>
+
+<body>
+  Hobby JavaScript no.8<br>
+<br>
+    
+<textarea id="xarea" rows=1 cols = 25 ></textarea> 
+<input type="button" value="時刻コピー" onClick="xcopy($('#xarea').val())">
+<br>
+
+<input type="button" value="メモコピー" onClick="xcopy($('#xmemo').val())">
+<br>
+<textarea id="xmemo" rows=20 cols = 50 ></textarea> 
+
+<script>
+
+setInterval(xdspDate, 200);
+    
+function xdspDate(){
+
+  xt = new Date()
+
+  xyoubi = "---"
+  if (xt.getDay() == 0){
+    xyoubi = "日"
+  }
+  if (xt.getDay() == 1){
+    xyoubi = "月"
+  }
+  if (xt.getDay() == 2){
+    xyoubi = "火"
+  }
+  if (xt.getDay() == 3){
+    xyoubi = "水"
+  }
+  if (xt.getDay() == 4){
+    xyoubi = "木"
+  }
+  if (xt.getDay() == 5){
+    xyoubi = "金"
+  }
+  if (xt.getDay() == 6){
+    xyoubi = "土"
+  }
+
+  xdt = xt.getFullYear()
+    + "/"
+    + ("0" + (xt.getMonth() + 1)).slice(-2)
+    + "/"
+    + ("0" + xt.getDate()).slice(-2)
+    + "("
+    + xyoubi
+    + ") "
+    + ("0" + xt.getHours()).slice(-2)
+    + ":"
+    + ("0" + xt.getMinutes()).slice(-2)
+    + ":"
+    + ("0" + xt.getSeconds()).slice(-2)
+
+  $("#xarea").val(xdt)
+}
+
+function xcopy(xstr){
+
+  let xtmp = document.createElement('div');
+  xtmp.appendChild(document.createElement('pre')).textContent = xstr;
+
+  let xs = xtmp.style;
+  xs.position = 'fixed';
+  xs.left = '-100%';
+
+  document.body.appendChild(xtmp);
+  document.getSelection().selectAllChildren(xtmp);
+
+  var xrst = document.execCommand('copy');
+
+  document.body.removeChild(xtmp);
+
+  // true なら実行できている falseなら失敗か対応していないか
+  // if(xrst){alert("コピーできました");} else {alert("失敗");}
+}
+
+</script>
+
+</body>
+</html>
