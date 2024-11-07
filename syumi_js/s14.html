@@ -1,0 +1,37 @@
+<html>
+
+<body>
+  Hobby JavaScript no.14<br>
+  オブジェクト、クラス、インスタンス
+<script>
+
+class Saline {
+
+  constructor(g, p) {
+    this.g = g;
+    this.p = p;
+  }
+
+  getSalt(){
+    let y = this.g * this.p /100
+    return y
+  }
+
+  add(x){
+    let g = this.g + x.g
+    let s = this.getSalt() + x.getSalt()
+    let p = s / g * 100
+    let y = new Saline(g, p)
+    return y
+  }
+}
+
+// s01 =  getSalt(200, 3)
+let s01 = new Saline(200, 3)
+let s02 = new Saline(100, 6)
+let s03 = s01.add(s02)
+console.log(s03)
+
+</script>
+</body>
+</html>
