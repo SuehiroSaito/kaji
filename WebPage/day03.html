@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; padding: 0; }
+        
+        /* h1 の設定 */
+        h1 {
+            font-style: italic;
+            color: #333333;
+            text-align: center;
+            margin-top: 0;
+            padding-top: 10px;
+            border: 2px solid #333333;
+            padding: 20px;
+        }
+        
+        /* div (.container) の設定 */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hello</h1>
+    </div>
+    <h1> Good day</h1>
+
+    <script>
+        setInterval(() => {
+            document
+                .body
+                .style
+                .backgroundColor = 
+                `hsl(${Math.random() * 360}, 70%, 80%)`;
+        }, 
+        2000);
+    </script>
+
+</body>
+</html>
