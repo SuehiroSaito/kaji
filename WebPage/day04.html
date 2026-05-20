@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CSSボックスモデルの解説</title>
+    <style>
+        /* ==========================================
+           CSS（スタイルの設定）
+           ========================================== */
+
+        /* 画面（壁）の背景設定 */
+        body {
+            background-color: #f5f5f5;
+            font-family: sans-serif;
+            padding: 40px;
+        }
+
+        /* わかりやすくするために、ボックスの外側に枠を準備 */
+        .box-container {
+            background-color: #e0e0e0; /* マージン部分がわかりやすいようにグレーの背景 */
+            display: inline-block;
+        }
+
+        /* 額縁（ボックスモデル）の本設定 */
+        .custom-box {
+            /* 1. コンテンツ（絵）の大きさを指定 */
+            width: 300px;
+            height: 100px;
+            background-color: #fffdec; /* コンテンツ部分の背景（薄い黄色） */
+
+            /* 2. パディング（額縁の中の詰め物） */
+            padding: 20px; 
+
+            /* 3. ボーダー（額縁の枠） */
+            border: 10px solid #8B4513; /* 10pxの太さの茶色の枠線 */
+
+            /* 4. マージン（額縁の外側の隙間） */
+            margin: 30px; 
+            
+            /* 文字の装飾 */
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         HTML（骨組みの設定）
+         ========================================== -->
+    
+    <!-- ボックスモデルを視覚化するコンテナ -->
+    <div class="box-container">
+        <div class="custom-box">
+            ここに絵や文字（コンテンツ）が入ります。
+        </div>
+    </div>
+
+</body>
+</html>
