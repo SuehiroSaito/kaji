@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScriptの組み込み</title>
+</head>
+<body>
+
+<p>
+    コンテンツ、いろいろ。
+</p>
+<button id="hello-btn">ボタン</button>
+<div id="message-area"></div>
+
+<script>
+    const button = document.getElementById('hello-btn');
+    const messageArea = document.getElementById('message-area');
+
+    button.addEventListener('click', () => {
+        messageArea.textContent = 'Hello';
+    });
+</script>
+
+</body>
+</html>
