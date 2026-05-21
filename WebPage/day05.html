@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>JavaScriptの組み込み</title>
-</head>
+<html>
 <body>
 
 <p>
-    コンテンツ、いろいろ。
+    ここに、コンテンツ、いろいろ。
 </p>
-<button id="hello-btn">ボタン</button>
-<div id="message-area"></div>
+
+<button id="btn01">JavaScript開始ボタン</button>
+
+<div id="msg01"></div>
 
 <script>
-    const button = document.getElementById('hello-btn');
-    const messageArea = document.getElementById('message-area');
+    // JavaScriptのコードは、ここに書きます。
+    const btn01 = document.getElementById('btn01');
+    const msg01 = document.getElementById('msg01');
 
-    button.addEventListener('click', () => {
-        messageArea.textContent = 'Hello';
+    btn01.addEventListener('click', () => {
+        msg01.textContent = 'Hello';
     });
 </script>
 
