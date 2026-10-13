@@ -1,0 +1,16 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+<body>
+    <input type="text" id="userInput" value="Hello">
+    <button id="myButton">Please Click</button>
+    <h1 id="out"></h1>
+
+    <script type="text/python">
+        from browser import document
+
+        btn = document["myButton"]
+        def _(event): #無名関数のかわり
+            val = document["userInput"].value
+            document["out"].text = val
+        btn.bind("click", _)
+    </script>
+</body>

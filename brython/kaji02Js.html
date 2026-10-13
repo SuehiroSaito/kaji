@@ -1,0 +1,13 @@
+<body>
+    <input type="text" id="userInput" value="Hello">
+    <button id="myButton">Please Click</button>
+    <h1 id="out"></h1>
+
+    <script>
+        const btn = document.getElementById("myButton");
+        btn.addEventListener("click", function() {
+            const val = document.getElementById("userInput").value;
+            document.getElementById("out").textContent = val;
+        });
+    </script>
+</body>
