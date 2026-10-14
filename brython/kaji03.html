@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body onload="brython()">
+    <div id="box" style="width:100px; height:100px; background:blue;"></div>
+    <button id="btn">Change Color</button>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/python">
+        from browser import document
+        
+        box = document["box"]
+        
+        document["btn"].bind(
+            "click",
+            lambda e: setattr(
+                box.style, "background",
+                "red" 
+                if box.style.background == "blue" 
+                else "blue"
+            )
+        )
+    </script>
+</body>
+</html>
