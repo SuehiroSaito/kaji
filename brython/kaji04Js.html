@@ -1,0 +1,15 @@
+<body>
+    <input id="in" value="Hello, JS">
+    <button id="btn">Save</button>
+    <p id="out"></p>
+
+    <script>
+        const i = document.getElementById("in");
+        const o = document.getElementById("out");
+
+        document.getElementById("btn").onclick = function() {
+            localStorage.setItem("k", i.value);
+            o.textContent = "Saved: " + localStorage.getItem("k");
+        };
+    </script>
+</body>

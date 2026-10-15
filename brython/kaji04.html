@@ -1,0 +1,23 @@
+<body onload="brython()">
+    <!-- 入力欄には「Hello, Brython」を初期値にしておくわね🔔 -->
+    <input id="in" value="Hello, Brython">
+    <button id="btn">Save</button>
+    <p id="out"></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/python">
+        # window のクラス、インポートだよ🔔
+        from browser import document, window
+
+        # 要素とローカルストレージを変数にスッキリまとめて代入！
+        i, o, s = document["in"], document["out"], window.localStorage
+
+        # ボタンをクリックしたときに動く関数よ🔔
+        def handle(e):
+            s.setItem("k", i.value)
+            o.text = "saved: " + s.getItem("k")
+
+        # "btn" のクリックイベントに関数をバインド！
+        document["btn"].bind("click", handle)
+        </script>
+</body>
