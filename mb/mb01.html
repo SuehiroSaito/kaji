@@ -1,0 +1,11 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+<body onload="brython()">
+    <h1 id="out"></h1>
+    <script type="text/python">
+
+        // Hello 出力
+        from browser import document
+        document["out"].text = "Hello, Brython!"
+
+    </script>
+</body>
