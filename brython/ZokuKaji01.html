@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+<button id="button_01">Brtyhon</button>
+<button id="button_02">JavaScript</button>
+
+<script type="text/python">
+from browser import document, window
+import datetime
+
+document["button_01"].bind("click", lambda ev: 
+    window.alert(f"現在日時: {datetime.datetime.now()}")
+)
+
+</script>
+<script>
+
+document.getElementById("button_02").addEventListener("click", function(ev) {
+    alert(`現在日時: ${new Date().toLocaleString()}`);
+});
+
+</script>
+
+</body>
+</html>
