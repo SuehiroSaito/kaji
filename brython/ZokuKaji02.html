@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ZokuKaji02</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+    <style>
+        .box { width: 60px; height: 60px; background: #ddd; display: inline-block; text-align: center; line-height: 60px; margin: 5px; }
+    </style>
+</head>
+<body onload="brython()">
+
+<button id="button_01">Brython</button>
+<button id="button_02">JavaScript</button>
+<br>
+<div id="box1" class="box">1</div>
+<div id="box2" class="box">2</div>
+<div id="box3" class="box">3</div>
+
+<script type="text/python">
+from browser import document
+import random
+
+def change_color(ev):
+    colors = ["#f99", "#9f9", "#99f", "#ff9"]
+    document["box1"].style.backgroundColor = random.choice(colors)
+    document["box2"].style.backgroundColor = random.choice(colors)
+    document["box3"].style.backgroundColor = random.choice(colors)
+
+document["button_01"].bind("click", change_color)
+</script>
+
+<script>
+document.getElementById("button_02").addEventListener("click", function(ev) {
+    const colors = ["#f99", "#9f9", "#99f", "#ff9"];
+    document.getElementById("box1").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById("box2").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById("box3").style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+});
+</script>
+
+</body>
+</html>
