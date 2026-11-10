@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+
+<button id="button_01">Brython</button>
+<button id="button_02">JavaScript</button>
+
+<!-- Brython 側のダイアログ -->
+
+<script type="text/python">
+from browser import document, html
+from browser.widgets.dialog import Dialog, InfoDialog
+
+def show_dialog(ev):
+    d = Dialog("ユーザー入力・設定")
+    d.panel <= html.P("お名前を入力してください：")
+    inp = html.INPUT(type="text", value="")
+    d.panel <= inp
+    d.panel <= html.BR()
+    
+    btn = html.BUTTON("送信")
+    d.panel <= btn
+    
+    def on_submit(e):
+        name = inp.value
+        d.close()
+        InfoDialog("結果", f"こんにちは、{name}さん！")
+        
+    btn.bind("click", on_submit)
+
+document["button_01"].bind("click", show_dialog)
+</script>
+
+<!-- JavaScript側のダイアログ -->
+<dialog id="jsDialog" style="padding: 20px; border: 1px solid #ccc; border-radius: 4px;">
+    <h3>ユーザー入力・設定</h3>
+    <p>お名前を入力してください：</p>
+    <input type="text" id="jsInput" style="margin-bottom: 10px;"><br>
+    <button id="jsSubmit">送信</button>
+    <button id="jsClose">閉じる</button>
+</dialog>
+
+<script>
+const dialog = document.getElementById("jsDialog");
+const jsInput = document.getElementById("jsInput");
+
+document.getElementById("jsSubmit").addEventListener("click", function(ev) {
+    const name = jsInput.value;
+    dialog.close();
+    alert(`こんにちは、${name}さん！`);
+});
+
+document.getElementById("jsClose").addEventListener("click", function(ev) {
+    dialog.close();
+});
+
+document.getElementById("button_02").addEventListener("click", function(ev) {
+    jsInput.value = "";
+    dialog.showModal();
+});
+</script>
+
+</body>
+</html>
