@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+    <!-- Chart.js ライブラリの読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="brython()">
+
+<button id="button_01">Brython</button>
+<button id="button_02">JavaScript</button>
+<div id="container" style="width: 280px; margin-top: 10px;"></div>
+
+<!-- Brython 側のスクリプト -->
+<script type="text/python">
+from browser import document, html, window
+
+def render_chart(ev):
+    container = document["container"]
+
+    container.clear() # 画面を消す
+ 
+    canvas = html.CANVAS(id="myChart")
+    container <= canvas
+    ctx = canvas.getContext("2d")
+
+    # Chart インスタンス生成
+    window.Chart.new(ctx, {
+        "type": "bar",
+        "data": {
+            "labels": ["ベリー", "人参"],
+            "datasets": [{
+                "label": "数量",
+                "data": [10, 25],
+                "backgroundColor": ["#ff9999", "#99ff99"]
+            }]
+        }
+    })
+
+document["button_01"].bind("click", render_chart)
+</script>
+
+<!-- JavaScript側のスクリプト -->
+<script>
+document.getElementById("button_02").addEventListener("click", function(ev) {
+    const container = document.getElementById("container");
+
+    container.innerHTML = "";  // 画面を消す
+    
+    const canvas = document.createElement("canvas");
+    canvas.id = "myChart";
+    container.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+
+    // Chart インスタンス生成
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['ナツメ', '大根'],
+            datasets: [{
+                label: '数量',
+                data: [15, 30],
+                backgroundColor: ['#ffcc99', '#99ccff']
+            }]
+        }
+    });
+});
+</script>
+</body>
+</html>
