@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+<button id="btn01">Brython</button>
+<button id="btn02">JavaScript</button>
+<br>
+<div id="zone1" style="color: blue;">Hello</div>
+
+<script type="text/python">
+from browser import document
+
+elmt = document["zone1"]
+
+def change(event):
+    if elmt.style.color == "blue":
+        elmt.style.color = "red"
+    else:
+        elmt.style.color = "blue"
+    
+document["btn01"].bind("click", change)
+
+</script>
+<script>
+
+const elmt = document.getElementById("zone1");
+
+function change(event) {
+    if (elmt.style.color === "blue") {
+        elmt.style.color = "red";
+    } else {
+        elmt.style.color = "blue";
+    }
+}
+
+document.getElementById("btn02").addEventListener("click", change);
+
+</script>
+
+</body>
+</html>
