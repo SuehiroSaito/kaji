@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+<button id="btn01">Brython</button>
+<button id="btn02">JavaScript</button>
+<br>
+<div id="zone01" style="display: none;">表示・非表示が切り替わるテキストです。</div>
+
+<script type="text/python">
+from browser import bind, document
+
+# @bind でクリックと関数をパッとつなげるのが Brython の推しポイント🔔
+@bind("#btn01", "click")
+def toggle_display(event):
+    zone01 = document["zone01"]
+    # 英語の語順みたいに読める if / else で "inline" と "none" をくるくるチェンジ🔔
+    zone01.style.display = "inline" if zone01.style.display == "none" else "none"
+</script>
+
+<script>
+// こっちは JavaScript 版、? : の三項演算子で同じ切り替えをしてるよ🔔
+document.getElementById("btn02").addEventListener("click", function() {
+    const zone01 = document.getElementById("zone01");
+    zone01.style.display = zone01.style.display === "none" ? "inline" : "none";
+});
+</script>
+
+</body>
+</html>
